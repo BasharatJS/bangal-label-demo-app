@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import './Footer.css'
 import { useTheme } from '../../theme/ThemeContext'
 
 const Footer = () => {
-  const [animated, setAnimated] = useState(false)
-  const { theme } = useTheme() // Use our theme context
+  // Use ref and useInView hook for viewport detection
+  const footerRef = useRef(null)
+  const isInView = useInView(footerRef, { once: false, amount: 0.1 })
 
-  useEffect(() => {
-    // Trigger animations on mount
-    setAnimated(true)
-  }, [])
+  const { theme } = useTheme() // Use our theme context
 
   // Animation variants
   const containerVariants = {
@@ -47,21 +45,20 @@ const Footer = () => {
   }
 
   return (
-    <footer className={`footer ${animated ? 'animated' : ''} ${theme}-theme`}>
+    <footer className={`footer ${theme}-theme`} ref={footerRef}>
       <motion.div
         className="footer-container"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={isInView ? 'visible' : 'hidden'}
       >
         <motion.div
           className="footer-section logo-section"
           variants={itemVariants}
         >
-          <h2 className="footer-logo">Woven Label</h2>
+          <h2 className="footer-logo">Bengal Label</h2>
           <p className="footer-tagline">
-            We create digital experiences for brands and companies by using
-            technology.
+            Premium Woven and Printed Labels Manufacturer.
           </p>
           <motion.div className="social-icons">
             <motion.a
@@ -215,7 +212,7 @@ const Footer = () => {
         className="footer-bottom"
         variants={itemVariants}
         initial="hidden"
-        animate="visible"
+        animate={isInView ? 'visible' : 'hidden'}
       >
         <div className="footer-bottom-content">
           <div className="footer-links">

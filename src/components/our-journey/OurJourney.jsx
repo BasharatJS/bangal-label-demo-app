@@ -4,7 +4,7 @@ import './OurJourney.css'
 
 const OurJourney = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const isInView = useInView(ref, { once: false, amount: 0.1 })
 
   // Journey data
   const journeyData = [

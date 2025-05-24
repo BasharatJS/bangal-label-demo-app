@@ -4,7 +4,7 @@ import './OurTeam.css'
 
 const OurTeam = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const isInView = useInView(ref, { once: false, amount: 0.1 })
   const [hoveredCard, setHoveredCard] = useState(null)
 
   // Team data

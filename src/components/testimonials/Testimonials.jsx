@@ -6,7 +6,7 @@ const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const isInView = useInView(ref, { once: false, amount: 0.1 })
 
   // Testimonials data
   const testimonials = [

@@ -41,7 +41,7 @@ const ResponsiveHeader = () => {
           {/* Left section - Logo */}
           <div className="logo-container">
             <a href="/" className="logo">
-              Woven Label
+              Bengal Label
             </a>
           </div>
 

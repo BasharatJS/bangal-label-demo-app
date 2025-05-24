@@ -1,11 +1,16 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import './HeroSection.css'
 import videoBackground from '../../assets/video-label.mp4'
 
 const HeroSection = () => {
+  // Add ref and useInView hook for viewport detection
+  const heroRef = useRef(null)
+  const isInView = useInView(heroRef, { once: false, amount: 0.3 })
+
   // Animation variants
   const backgroundVariants = {
+    hidden: { scale: 1 },
     animate: {
       scale: 1.05,
       transition: {
@@ -78,12 +83,12 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="hero-container">
+    <div className="hero-container" ref={heroRef}>
       {/* Background animation */}
       <motion.div
         className="hero-background"
-        initial="initial"
-        animate="animate"
+        initial="hidden"
+        animate={isInView ? 'animate' : 'hidden'}
         variants={backgroundVariants}
       >
         <video className="background-video" autoPlay loop muted playsInline>
@@ -91,36 +96,26 @@ const HeroSection = () => {
           Your browser does not support the video tag.
         </video>
       </motion.div>
-      {/* <motion.div
-        className="hero-background"
-        initial="initial"
-        animate="animate"
-        variants={backgroundVariants}
-      >
-        {/* You could replace these divs with actual video if needed */}
-      {/* <div className="animated-bg-element"></div>
-        <div className="animated-bg-element second"></div>
-        <div className="animated-bg-element third"></div> */}
-      {/* </motion.div> */}
 
       {/* Dark overlay */}
       <motion.div
         className="hero-overlay"
         initial="hidden"
-        animate="visible"
+        animate={isInView ? 'visible' : 'hidden'}
         variants={overlayVariants}
       ></motion.div>
+
       {/* Content container */}
       <motion.div
         className="hero-content"
         initial="hidden"
-        animate="visible"
+        animate={isInView ? 'visible' : 'hidden'}
         variants={contentVariants}
       >
         <motion.h1
           custom={0}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? 'visible' : 'hidden'}
           variants={textVariants}
         >
           Elevate Your Brand with Exquisite Woven Labels
@@ -129,7 +124,7 @@ const HeroSection = () => {
         <motion.p
           custom={1}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? 'visible' : 'hidden'}
           variants={textVariants}
         >
           Precision Craftsmanship. Unmatched Quality. Exceptional Service.
@@ -139,7 +134,7 @@ const HeroSection = () => {
           <motion.button
             className="hero-button primary-button"
             initial="hidden"
-            animate="visible"
+            animate={isInView ? 'visible' : 'hidden'}
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
@@ -149,7 +144,7 @@ const HeroSection = () => {
           <motion.button
             className="hero-button secondary-button"
             initial="hidden"
-            animate="visible"
+            animate={isInView ? 'visible' : 'hidden'}
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
