@@ -1,0 +1,396 @@
+/* CardGrid.css */
+
+.card-section {
+  padding: 100px 20px;
+  background: var(--background-secondary);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Animated Background Elements */
+.card-section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
+  filter: blur(1px);
+}
+
+.floating-1 {
+  width: 200px;
+  height: 200px;
+  top: 15%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.floating-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 30%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.floating-3 {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  right: 5%;
+  animation-delay: 4s;
+}
+
+.section-title-container {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  margin: 0 auto 30px;
+  border-radius: 2px;
+  position: relative;
+  transform-origin: center;
+}
+
+.title-underline::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--background-secondary),
+    0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+.section-description {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+.card-grid-item {
+  display: flex;
+  min-height: 400px;
+  transform-style: preserve-3d;
+}
+
+/* CTA Section */
+.card-section-cta {
+  text-align: center;
+  margin-top: 100px;
+  padding: 60px 40px;
+  background: var(--card-bg);
+  border-radius: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px var(--shadow);
+  position: relative;
+  z-index: 2;
+}
+
+.card-section-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.05) 0%,
+    rgba(139, 92, 246, 0.05) 100%
+  );
+  border-radius: 30px;
+  pointer-events: none;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.cta-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.cta-button {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Card Hover Effects Enhancement */
+.card-grid-item:hover {
+  z-index: 10;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .floating-1,
+  .floating-2,
+  .floating-3 {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-section {
+    padding: 80px 20px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+
+  .card-grid {
+    gap: 25px;
+  }
+
+  .card-section-cta {
+    margin-top: 80px;
+    padding: 40px 30px;
+    border-radius: 20px;
+  }
+
+  .cta-title {
+    font-size: 1.6rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-section {
+    padding: 60px 15px;
+  }
+
+  .section-title-container {
+    margin-bottom: 60px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card-grid-item {
+    min-height: unset;
+  }
+
+  .card-section-cta {
+    margin-top: 60px;
+    padding: 30px 20px;
+  }
+
+  .cta-title {
+    font-size: 1.4rem;
+  }
+
+  .floating-element {
+    display: none;
+  }
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .card-section-cta::before {
+  background: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.08) 0%,
+    rgba(139, 92, 246, 0.08) 100%
+  );
+}
+
+.dark-theme .floating-element {
+  background: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.12),
+    rgba(139, 92, 246, 0.12)
+  );
+}
+
+.dark-theme .title-underline::after {
+  box-shadow: 0 0 0 4px var(--dark-background-secondary),
+    0 0 20px rgba(236, 72, 153, 0.6);
+}
+
+/* Enhanced Animation States */
+.card-grid-item {
+  transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+.card-grid-item:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Loading State Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.card-grid-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.card-grid-item:hover::before {
+  opacity: 1;
+}
+
+/* Scroll Indicator */
+.card-section::after {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  border-radius: 1px;
+  opacity: 0.6;
+}
