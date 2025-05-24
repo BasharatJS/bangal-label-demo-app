@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './HeroSection.css'
 import videoBackground from '../../assets/machine.mp4'
@@ -6,7 +6,17 @@ import videoBackground from '../../assets/machine.mp4'
 const HeroSection = () => {
   // Add ref and useInView hook for viewport detection
   const heroRef = useRef(null)
+  const videoRef = useRef(null) // Add a ref for the video element
   const isInView = useInView(heroRef, { once: false, amount: 0.3 })
+
+  // Use useEffect to control video playback rate when it loads
+  useEffect(() => {
+    if (videoRef.current) {
+      // Set the playback rate to slow down the video (values less than 1 slow it down)
+      // 0.5 will make it play at half speed, 0.75 at three-quarters speed, etc.
+      videoRef.current.playbackRate = 0.25 // Adjust this value to your preferred speed
+    }
+  }, [])
 
   // Animation variants
   const backgroundVariants = {
@@ -91,7 +101,14 @@ const HeroSection = () => {
         animate={isInView ? 'animate' : 'hidden'}
         variants={backgroundVariants}
       >
-        <video className="background-video" autoPlay loop muted playsInline>
+        <video
+          className="background-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          ref={videoRef} // Add the ref to the video element
+        >
           <source src={videoBackground} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
