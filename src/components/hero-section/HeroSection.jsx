@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './HeroSection.css'
-import videoBackground from '../../assets/video-label.mp4'
+import videoBackground from '../../assets/machine.mp4'
 
 const HeroSection = () => {
   // Add ref and useInView hook for viewport detection
@@ -83,7 +83,7 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="hero-container" ref={heroRef}>
+    <div className="hero-container" ref={heroRef} id="hero">
       {/* Background animation */}
       <motion.div
         className="hero-background"

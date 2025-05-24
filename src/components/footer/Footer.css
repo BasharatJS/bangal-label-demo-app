@@ -128,57 +128,69 @@
   padding-left: 5px;
 }
 
-/* Subscribe section */
-.subscribe-section {
+/* Contact Form Section - Replacing Subscribe section */
+.contact-section {
   flex: 0 0 100%;
   max-width: 100%;
 }
 
 @media (min-width: 768px) {
-  .subscribe-section {
+  .contact-section {
     flex: 0 0 25%;
     max-width: 25%;
   }
 }
 
-.subscribe-section h3 {
+.contact-section h3 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 15px;
   animation: fadeInDown 0.5s ease 0.1s both;
 }
 
-.subscribe-section p {
+.contact-section p {
   font-size: 14px;
   margin-bottom: 20px;
   line-height: 1.5;
   opacity: 0.8;
 }
 
-.email-subscribe {
+.contact-form {
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
   position: relative;
 }
 
-.email-subscribe input {
-  flex: 1;
+.form-group input,
+.form-group textarea {
+  width: 100%;
   padding: 12px 15px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 14px;
   outline: none;
   background-color: var(--input-bg);
   color: var(--text-primary);
   transition: all 0.3s ease;
+  font-family: inherit;
 }
 
-.email-subscribe input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
-.subscribe-btn {
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-btn {
   background-image: linear-gradient(
     to right,
     var(--color-primary),
@@ -186,23 +198,78 @@
   );
   border: none;
   color: white;
-  padding: 0 15px;
-  border-radius: 4px;
-  margin-left: 10px;
+  padding: 12px 20px;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
+  margin-top: 5px;
+  font-size: 14px;
 }
 
-.subscribe-btn:hover {
+.submit-btn:hover {
   background-image: linear-gradient(
     to right,
     var(--color-primary-dark),
     var(--color-secondary-dark)
   );
   box-shadow: 0 4px 8px rgba(236, 72, 153, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submit-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.submit-btn.success {
+  background-color: #10b981;
+  background-image: none;
+}
+
+/* Loading spinner */
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s ease infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form animations */
+.form-group input,
+.form-group textarea {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.form-group:nth-child(1) input {
+  animation-delay: 0.2s;
+}
+
+.form-group:nth-child(2) input {
+  animation-delay: 0.3s;
+}
+
+.form-group:nth-child(3) textarea {
+  animation-delay: 0.4s;
+}
+
+.submit-btn {
+  animation: fadeInUp 0.5s ease 0.5s both;
 }
 
 /* Footer bottom */
@@ -309,7 +376,7 @@ body.scrolled .scroll-to-top {
   }
   .logo-section,
   .links-section,
-  .subscribe-section {
+  .contact-section {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -320,6 +387,11 @@ body.scrolled .scroll-to-top {
   .footer-links {
     justify-content: center;
     margin-bottom: 15px;
+  }
+
+  /* Adjust form for mobile */
+  .contact-form {
+    max-width: 100%;
   }
 }
 

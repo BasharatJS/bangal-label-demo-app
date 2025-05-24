@@ -157,7 +157,7 @@ const OurJourney = () => {
   }
 
   return (
-    <section className="journey-section" ref={ref}>
+    <section className="journey-section" ref={ref} id="journey">
       <motion.div
         className="journey-container"
         variants={containerVariants}
@@ -198,7 +198,7 @@ const OurJourney = () => {
               >
                 {/* Timeline Icon */}
                 <motion.div
-                  className="timeline-icon"
+                  className={`timeline-icon ${item.position}`}
                   variants={iconVariants}
                   whileHover={{
                     rotate: 360,

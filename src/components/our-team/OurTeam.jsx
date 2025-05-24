@@ -11,7 +11,7 @@ const OurTeam = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Abd Sarfraj Khan',
+      name: 'Borhan Haldar',
       role: 'Co-Founder & Technical Director',
       experience: '10+ years of experience in the woven label industry',
       description:
@@ -29,7 +29,7 @@ const OurTeam = () => {
     },
     {
       id: 2,
-      name: 'Borhan Haldar',
+      name: 'Abd Sarfraj Khan',
       role: 'Co-Founder & Business Director',
       experience:
         '30+ years of combined experience in garment and accessories industry',
@@ -169,7 +169,7 @@ const OurTeam = () => {
   }
 
   return (
-    <section className="team-section" ref={ref}>
+    <section className="team-section" ref={ref} id="team">
       {/* Background Elements */}
       <div className="team-bg">
         <motion.div

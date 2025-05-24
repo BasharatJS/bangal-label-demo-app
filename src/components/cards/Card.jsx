@@ -88,7 +88,7 @@ const Card = ({ image, title, description, index }) => {
         >
           {description}
         </motion.p>
-        <motion.button
+        {/* <motion.button
           className="card-button"
           whileHover={{
             scale: 1.05,
@@ -97,7 +97,7 @@ const Card = ({ image, title, description, index }) => {
           whileTap={{ scale: 0.95 }}
         >
           Learn More
-        </motion.button>
+        </motion.button> */}
       </motion.div>
     </motion.div>
   )

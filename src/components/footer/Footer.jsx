@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './Footer.css'
 import { useTheme } from '../../theme/ThemeContext'
@@ -7,8 +7,41 @@ const Footer = () => {
   // Use ref and useInView hook for viewport detection
   const footerRef = useRef(null)
   const isInView = useInView(footerRef, { once: false, amount: 0.1 })
-
   const { theme } = useTheme() // Use our theme context
+
+  // Form state
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+  const [formStatus, setFormStatus] = useState(null)
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormState({
+      ...formState,
+      [name]: value,
+    })
+  }
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setFormStatus('sending')
+
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus('success')
+      setFormState({ name: '', email: '', message: '' })
+
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setFormStatus(null)
+      }, 3000)
+    }, 1500)
+  }
 
   // Animation variants
   const containerVariants = {
@@ -44,8 +77,33 @@ const Footer = () => {
     },
   }
 
+  const inputVariants = {
+    focus: {
+      scale: 1.02,
+      borderColor: 'var(--color-primary)',
+      boxShadow: '0 0 0 2px var(--focus-ring)',
+      transition: { duration: 0.3 },
+    },
+  }
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: '0 6px 15px rgba(236, 72, 153, 0.3)',
+      transition: { duration: 0.3 },
+    },
+    tap: {
+      scale: 0.95,
+      transition: { duration: 0.1 },
+    },
+    success: {
+      backgroundColor: '#10B981',
+      transition: { duration: 0.3 },
+    },
+  }
+
   return (
-    <footer className={`footer ${theme}-theme`} ref={footerRef}>
+    <footer className={`footer ${theme}-theme`} ref={footerRef} id="contact">
       <motion.div
         className="footer-container"
         variants={containerVariants}
@@ -58,7 +116,9 @@ const Footer = () => {
         >
           <h2 className="footer-logo">Bengal Label</h2>
           <p className="footer-tagline">
-            Premium Woven and Printed Labels Manufacturer.
+            Premium Woven and Printed Labels Manufacturer. Bengal Label is a
+            premier manufacturer of textile identification solutions with over
+            two decades of industry experience.
           </p>
           <motion.div className="social-icons">
             <motion.a
@@ -181,30 +241,85 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
+        {/* Contact Form - Replacing Subscribe section */}
         <motion.div
-          className="footer-section subscribe-section"
+          className="footer-section contact-section"
           variants={itemVariants}
         >
-          <h3>Subscribe</h3>
-          <p>Subscribe to our newsletter for the latest updates</p>
-          <div className="email-subscribe">
-            <input type="email" placeholder="Email address" />
+          <h3>Contact Us</h3>
+          <p>Get in touch with our team</p>
+
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <motion.div className="form-group">
+              <motion.input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formState.name}
+                onChange={handleInputChange}
+                required
+                whileFocus="focus"
+                variants={inputVariants}
+              />
+            </motion.div>
+
+            <motion.div className="form-group">
+              <motion.input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formState.email}
+                onChange={handleInputChange}
+                required
+                whileFocus="focus"
+                variants={inputVariants}
+              />
+            </motion.div>
+
+            <motion.div className="form-group">
+              <motion.textarea
+                name="message"
+                placeholder="Your Message"
+                value={formState.message}
+                onChange={handleInputChange}
+                required
+                rows="3"
+                whileFocus="focus"
+                variants={inputVariants}
+              />
+            </motion.div>
+
             <motion.button
-              className="subscribe-btn"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              type="submit"
+              className={`submit-btn ${
+                formStatus === 'success' ? 'success' : ''
+              }`}
+              whileHover="hover"
+              whileTap="tap"
+              variants={buttonVariants}
+              disabled={formStatus === 'sending' || formStatus === 'success'}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
-              </svg>
+              {formStatus === 'sending' ? (
+                <div className="loader"></div>
+              ) : formStatus === 'success' ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              ) : (
+                'Send Message'
+              )}
             </motion.button>
-          </div>
+          </form>
         </motion.div>
       </motion.div>
 
@@ -223,7 +338,7 @@ const Footer = () => {
           <div className="copyright">
             © 2024 Woven Label Inc. All rights reserved. Distributed by{' '}
             <a href="https://themewagon.com" className="theme-link">
-              Bangal Label
+              Bengal Label
             </a>
           </div>
         </div>

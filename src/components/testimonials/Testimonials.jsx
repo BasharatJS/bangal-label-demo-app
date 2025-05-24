@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import './Testimonials.css'
+import adiCeoImage from '../../assets/images/adi-ceo.jpeg'
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -12,14 +13,13 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      position: 'Creative Director',
-      company: 'Fashion Forward Inc.',
-      image:
-        'https://images.unsplash.com/photo-1494790108755-2616b812c1c4?w=400&h=400&fit=crop&crop=face',
+      name: 'John Doe',
+      position: 'CEO',
+      company: 'ADI & ARYA.',
+      image: adiCeoImage,
       rating: 5,
-      text: 'Bengal Label has transformed our brand identity with their exceptional woven labels. The quality and attention to detail are simply outstanding. Our customers constantly compliment the premium feel of our products.',
-      location: 'New York, USA',
+      text: 'Amazing service.. on time delivery and consistence in quality.',
+      location: 'Kolkata, India',
     },
     {
       id: 2,
@@ -188,7 +188,7 @@ const Testimonials = () => {
   }
 
   return (
-    <section className="testimonials-section" ref={ref}>
+    <section className="testimonials-section" ref={ref} id="testimonials">
       {/* Background Elements */}
       <div className="testimonials-bg">
         <motion.div

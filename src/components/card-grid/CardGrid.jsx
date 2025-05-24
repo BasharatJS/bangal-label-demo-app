@@ -21,7 +21,7 @@ const CardGrid = () => {
       id: 2,
       image:
         'https://images.unsplash.com/photo-1731036329820-74e286b68cc6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvdmVuJTIwbGFiZWx8ZW58MHx8MHx8fDA%3D',
-      title: 'Custom Design Solutions',
+      title: 'Premium Printed Labels',
       description:
         'From concept to creation, we bring your vision to life with personalized designs that reflect your brand identity.',
     },
@@ -53,7 +53,7 @@ const CardGrid = () => {
       id: 6,
       image:
         'https://img.freepik.com/free-vector/blue-pink-fabric-tag-cloth-labels-textile_107791-2852.jpg',
-      title: 'Global Reach',
+      title: 'Custom Design Solutions',
       description:
         'Serving clients worldwide with consistent quality and reliable service that builds lasting business relationships.',
     },
@@ -176,7 +176,7 @@ const CardGrid = () => {
   }
 
   return (
-    <section className="card-section" ref={ref}>
+    <section className="card-section" ref={ref} id="features">
       {/* Animated Background Elements */}
       <motion.div
         className="card-section-bg"
