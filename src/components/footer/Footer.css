@@ -1,4 +1,5 @@
-/* Footer.css */
+/* Footer.css - Cleaned Version */
+
 /* Base styles */
 .footer {
   width: 100%;
@@ -25,33 +26,6 @@
   margin-bottom: 40px;
 }
 
-.logo-section {
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .logo-section {
-    flex: 0 0 30%;
-    max-width: 30%;
-  }
-}
-
-.footer-logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  animation: fadeInDown 0.8s ease forwards;
-}
-
-.footer-tagline {
-  font-size: 14px;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  opacity: 0.8;
-}
-
 /* Social icons */
 .social-icons {
   display: flex;
@@ -59,76 +33,12 @@
   margin-top: 20px;
 }
 
-.social-icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-primary);
-  transition: all 0.3s ease;
+.map-card .social-icons {
+  margin-top: 15px;
+  justify-content: flex-start;
 }
 
-.social-icon:hover {
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary),
-    var(--color-secondary)
-  );
-  color: white;
-}
-
-/* Links section */
-.links-section {
-  flex: 0 0 100%;
-  max-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-@media (min-width: 768px) {
-  .links-section {
-    flex: 0 0 40%;
-    max-width: 40%;
-  }
-}
-
-.footer-column {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-
-.footer-column h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  animation: fadeInDown 0.5s ease 0.1s both;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column li {
-  margin-bottom: 10px;
-}
-
-.footer-column a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.footer-column a:hover {
-  color: var(--color-primary);
-  padding-left: 5px;
-}
-
-/* Contact Form Section - Replacing Subscribe section */
+/* Contact Form Section */
 .contact-section {
   flex: 0 0 100%;
   max-width: 100%;
@@ -136,8 +46,8 @@
 
 @media (min-width: 768px) {
   .contact-section {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 30%;
+    max-width: 30%;
   }
 }
 
@@ -145,7 +55,6 @@
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 15px;
-  animation: fadeInDown 0.5s ease 0.1s both;
 }
 
 .contact-section p {
@@ -250,28 +159,6 @@
   }
 }
 
-/* Form animations */
-.form-group input,
-.form-group textarea {
-  animation: fadeInUp 0.5s ease both;
-}
-
-.form-group:nth-child(1) input {
-  animation-delay: 0.2s;
-}
-
-.form-group:nth-child(2) input {
-  animation-delay: 0.3s;
-}
-
-.form-group:nth-child(3) textarea {
-  animation-delay: 0.4s;
-}
-
-.submit-btn {
-  animation: fadeInUp 0.5s ease 0.5s both;
-}
-
 /* Footer bottom */
 .footer-bottom {
   border-top: 1px solid var(--border);
@@ -369,29 +256,129 @@ body.scrolled .scroll-to-top {
   visibility: visible;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-  }
-  .logo-section,
-  .links-section,
-  .contact-section {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .footer-links {
-    justify-content: center;
-    margin-bottom: 15px;
-  }
+/* Map section */
+.map-section {
+  flex: 0 0 100%;
+  max-width: 100%;
+  height: 350px;
+  position: relative; /* Ensure position is set */
+  display: block; /* Guarantee display block */
+  z-index: 10; /* Ensure map is above other content */
+}
 
-  /* Adjust form for mobile */
-  .contact-form {
-    max-width: 100%;
+@media (min-width: 768px) {
+  .map-section {
+    flex: 0 0 65%;
+    max-width: 65%;
+    height: 400px;
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow);
+  display: flex; /* Use flexbox */
+  min-height: 300px; /* Minimum height for visibility */
+}
+
+/* Map overlay styling */
+.map-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.map-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border);
+}
+
+.map-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.map-card p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.map-card svg {
+  color: var(--color-primary);
+}
+
+/* Custom marker styling */
+.custom-marker {
+  background: transparent;
+}
+
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+}
+
+.marker-pin::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: var(--card-bg);
+  position: absolute;
+  border-radius: 50%;
+}
+
+.custom-marker.bounce .marker-pin {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+}
+
+/* Map tiles animation */
+.map-tiles {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -418,27 +405,103 @@ body.scrolled .scroll-to-top {
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
+/* Responsive styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .map-section,
+  .contact-section {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .map-section {
+    height: 300px;
+    margin-bottom: 30px;
+    display: block; /* Ensure display is block */
+    width: 100%; /* Full width */
+    order: -1; /* Move map to the top in mobile view */
+  }
+
+  .map-container {
+    height: 100%;
+    min-height: 300px; /* Ensure minimum height */
+    width: 100%;
+    display: block; /* Ensure display is block */
+  }
+
+  .map-card {
+    min-width: 180px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  /* Adjust form for mobile */
+  .contact-form {
+    max-width: 100%;
   }
 }
 
-/* Footer item animations with staggered delay */
-.footer-column ul li:nth-child(1) a {
-  animation: fadeInUp 0.5s ease 0.1s both;
+/* Smaller mobile screens */
+@media (max-width: 480px) {
+  .map-section {
+    height: 250px;
+    margin-bottom: 25px;
+    display: block !important; /* Force display */
+    visibility: visible !important; /* Force visibility */
+  }
+
+  .map-container {
+    min-height: 250px;
+    height: 100% !important;
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+  }
+
+  .leaflet-container {
+    height: 250px !important;
+    min-height: 250px !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  /* Make overlay more compact on small screens */
+  .map-overlay {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .map-card {
+    padding: 10px;
+    min-width: 160px;
+    max-width: 200px;
+  }
+
+  .map-card h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .map-card p {
+    font-size: 12px;
+    margin: 6px 0;
+  }
 }
-.footer-column ul li:nth-child(2) a {
-  animation: fadeInUp 0.5s ease 0.2s both;
-}
-.footer-column ul li:nth-child(3) a {
-  animation: fadeInUp 0.5s ease 0.3s both;
-}
-.footer-column ul li:nth-child(4) a {
-  animation: fadeInUp 0.5s ease 0.4s both;
+
+/* Fix for Leaflet attribution positioning */
+.leaflet-control-attribution {
+  font-size: 9px;
 }
