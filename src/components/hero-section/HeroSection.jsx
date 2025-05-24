@@ -14,7 +14,7 @@ const HeroSection = () => {
     if (videoRef.current) {
       // Set the playback rate to slow down the video (values less than 1 slow it down)
       // 0.5 will make it play at half speed, 0.75 at three-quarters speed, etc.
-      videoRef.current.playbackRate = 0.25 // Adjust this value to your preferred speed
+      videoRef.current.playbackRate = 0.75 // Adjust this value to your preferred speed
     }
   }, [])
 
