@@ -463,7 +463,7 @@ const Footer = () => {
           </div>
           <div className="copyright">
             © 2024 Woven Label Inc. All rights reserved. Distributed by{' '}
-            <a href="https://themewagon.com" className="theme-link">
+            <a href="/" className="theme-link">
               Bengal Label
             </a>
           </div>
