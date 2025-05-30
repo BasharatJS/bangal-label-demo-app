@@ -143,9 +143,10 @@
 /* REMOVED: Logo breathing animation that causes flickering */
 
 /* SIMPLIFIED: Logo Text - Minimal Animation */
-.logo-text {
-  /* No animation to prevent flickering */
-}
+/* No animation to prevent flickering */
+/* .logo-text {
+  
+} */
 
 /* COMPLETELY REMOVED: Floating particles that cause flickering */
 .particle {
