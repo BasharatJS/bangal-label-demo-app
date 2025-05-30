@@ -462,7 +462,8 @@ const Footer = () => {
             <a href="/terms">Terms of Service</a>
           </div>
           <div className="copyright">
-            © 2024 Woven Label Inc. All rights reserved. Distributed by{' '}
+            ©{new Date().getFullYear()} Bengal Label Inc. All rights reserved.
+            Distributed by{' '}
             <a href="/" className="theme-link">
               Bengal Label
             </a>

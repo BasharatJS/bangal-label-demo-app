@@ -7,6 +7,7 @@ import { useTheme } from './theme/ThemeContext'
 import OurJourney from './components/our-journey/OurJourney'
 import Testimonials from './components/testimonials/Testimonials'
 import OurTeam from './components/our-team/OurTeam'
+import TeamMembers from './components/team-member/TeamMember'
 
 function App() {
   const { theme } = useTheme() // Access the current theme
@@ -19,6 +20,7 @@ function App() {
         <CardGrid />
         <Testimonials />
         <OurTeam />
+        <TeamMembers />
       </main>
       <Footer />
     </div>

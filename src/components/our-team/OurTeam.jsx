@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './OurTeam.css'
+import CofounderImage from '../../assets/images/founder-image.jpg'
 
 const OurTeam = () => {
   const ref = useRef(null)
@@ -35,8 +36,7 @@ const OurTeam = () => {
         '30+ years of combined experience in garment and accessories industry',
       description:
         'Visionary leader with extensive experience in garment business, bringing strategic insight and industry connections.',
-      image:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+      image: CofounderImage,
       specialties: [
         'Business Strategy',
         'Client Relations',
@@ -206,7 +206,7 @@ const OurTeam = () => {
           >
             👥
           </motion.div>
-          <h2 className="team-title">Our Team</h2>
+          <h2 className="team-title">Founders</h2>
           <div className="team-subtitle-line"></div>
           <p className="team-subtitle">
             Meet the visionary leaders and experienced professionals driving

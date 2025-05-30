@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Header.css'
 import { useTheme } from '../../theme/ThemeContext'
-import AuthModal from '../auth-modal/AuthModal'
 
 const ResponsiveHeader = () => {
   const { theme, toggleTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const [animated, setAnimated] = useState(false)
-  const [authModalOpen, setAuthModalOpen] = useState(false)
-  const [authModalTab, setAuthModalTab] = useState('login')
   const [activeSection, setActiveSection] = useState('hero')
   const [isMobile, setIsMobile] = useState(false)
 
@@ -91,16 +88,6 @@ const ResponsiveHeader = () => {
     setMenuOpen(!menuOpen)
   }
 
-  const openAuthModal = (tab) => {
-    setAuthModalTab(tab)
-    setAuthModalOpen(true)
-    setMenuOpen(false)
-  }
-
-  const closeAuthModal = () => {
-    setAuthModalOpen(false)
-  }
-
   // Smooth scroll function with improved transition handling
   const scrollToSection = (sectionId, event) => {
     event.preventDefault()
@@ -129,6 +116,18 @@ const ResponsiveHeader = () => {
 
   const handleMouseDown = (e) => {
     e.preventDefault()
+  }
+
+  // Handle app link click
+  const handleAppLinkClick = () => {
+    // Close mobile menu if open
+    if (menuOpen) {
+      setMenuOpen(false)
+    }
+
+    // You can replace this URL with your actual app URL
+    window.open('https://your-app-url.com', '_blank')
+    // Or use: window.location.href = 'https://your-app-url.com' to open in same tab
   }
 
   return (
@@ -237,38 +236,20 @@ const ResponsiveHeader = () => {
               </li>
             </ul>
 
-            {/* Mobile auth buttons - Only visible in mobile menu, directly after the nav links */}
-            <div className={`mobile-auth-buttons ${menuOpen ? 'active' : ''}`}>
-              <button
-                className="auth-button login"
-                onClick={() => openAuthModal('login')}
-              >
-                Login
-              </button>
-              <button
-                className="auth-button signup"
-                onClick={() => openAuthModal('signup')}
-              >
-                Sign Up
+            {/* Mobile app button - Only visible in mobile menu */}
+            <div className={`mobile-app-button ${menuOpen ? 'active' : ''}`}>
+              <button className="app-button" onClick={handleAppLinkClick}>
+                🚀 Launch App
               </button>
             </div>
           </nav>
 
-          {/* Right section - Authentication & Dark Mode for desktop */}
-          <div className="auth-container">
-            {/* Desktop auth buttons */}
-            <div className="desktop-auth-buttons">
-              <button
-                className="auth-button login"
-                onClick={() => openAuthModal('login')}
-              >
-                Login
-              </button>
-              <button
-                className="auth-button signup"
-                onClick={() => openAuthModal('signup')}
-              >
-                Sign Up
+          {/* Right section - App Button & Dark Mode for desktop */}
+          <div className="app-container">
+            {/* Desktop app button */}
+            <div className="desktop-app-button">
+              <button className="app-button" onClick={handleAppLinkClick}>
+                🚀 Launch App
               </button>
 
               {/* Desktop dark mode toggle - Only visible on desktop */}
@@ -285,12 +266,6 @@ const ResponsiveHeader = () => {
           </div>
         </div>
       </header>
-      {/* Auth Modal */}
-      <AuthModal
-        isOpen={authModalOpen}
-        onClose={closeAuthModal}
-        initialTab={authModalTab}
-      />
     </>
   )
 }

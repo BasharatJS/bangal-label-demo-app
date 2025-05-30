@@ -113,54 +113,69 @@
   opacity: 1;
 }
 
-/* Right section - Auth & Dark Mode */
-.auth-container {
+/* Right section - App Button & Dark Mode */
+.app-container {
   display: flex;
   align-items: center;
 }
 
-.auth-button {
-  padding: 8px 15px;
-  margin-left: 10px;
+/* App Button Styles */
+.app-button {
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.login {
-  background-image: linear-gradient(to right, transparent, transparent);
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
-}
-
-.login:hover {
-  background-image: linear-gradient(
-    to right,
-    rgba(236, 72, 153, 0.1),
-    rgba(236, 72, 153, 0.1)
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
   );
-  color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  box-shadow: 0 4px 8px rgba(236, 72, 153, 0.3);
-}
-
-.signup {
-  background-image: linear-gradient(to right, var(--color-primary), #8b5cf6);
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+  transform: translateY(0);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Add hover effects for gradient buttons */
-.signup:hover {
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary-dark),
-    #7c3aed
+.app-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
   );
-  box-shadow: 0 4px 8px rgba(236, 72, 153, 0.3);
-  transform: translateY(-1px);
+  transition: left 0.5s ease;
+}
+
+.app-button:hover::before {
+  left: 100%;
+}
+
+.app-button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark),
+    var(--color-secondary-dark)
+  );
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+  transform: translateY(-2px);
+}
+
+.app-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(236, 72, 153, 0.3);
 }
 
 /* Dark mode toggle base styles */
@@ -173,20 +188,26 @@
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
-/* Desktop dark mode toggle - positioned after signup button */
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Desktop dark mode toggle - positioned after app button */
 .dark-mode-toggle.desktop-toggle {
   margin-left: 15px;
 }
 
-/* Mobile auth buttons - Only visible on mobile */
-.mobile-auth-buttons {
+/* Mobile app button - Only visible on mobile */
+.mobile-app-button {
   display: none;
 }
 
-/* Desktop auth buttons */
-.desktop-auth-buttons {
+/* Desktop app button */
+.desktop-app-button {
   display: flex;
   align-items: center;
 }
@@ -253,8 +274,8 @@
     flex: 1;
   }
 
-  /* Hide desktop auth buttons */
-  .desktop-auth-buttons {
+  /* Hide desktop app button */
+  .desktop-app-button {
     display: none;
   }
 
@@ -287,7 +308,7 @@
     flex-direction: column;
     width: 100%;
     text-align: center;
-    margin-bottom: 20px; /* Space between links and auth buttons */
+    margin-bottom: 20px; /* Space between links and app button */
   }
 
   .nav-menu li {
@@ -308,8 +329,8 @@
     transform: translateX(-50%);
   }
 
-  /* Show mobile auth buttons directly after nav links */
-  .mobile-auth-buttons {
+  /* Show mobile app button directly after nav links */
+  .mobile-app-button {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -320,16 +341,17 @@
     opacity: 0;
   }
 
-  .mobile-auth-buttons.active {
+  .mobile-app-button.active {
     display: flex;
     opacity: 1;
   }
 
-  .mobile-auth-buttons .auth-button {
+  .mobile-app-button .app-button {
     width: 90%;
     margin: 8px 0;
-    padding: 12px;
+    padding: 15px;
     font-size: 16px;
+    justify-content: center;
   }
 
   /* Fix mobile dark mode toggle position to align with hamburger */
@@ -367,9 +389,14 @@
     font-size: 16px;
   }
 
-  .mobile-auth-buttons .auth-button {
-    padding: 10px;
+  .mobile-app-button .app-button {
+    padding: 12px;
     font-size: 14px;
+  }
+
+  .app-button {
+    padding: 8px 16px;
+    font-size: 13px;
   }
 }
 
@@ -419,6 +446,17 @@ html {
   }
 }
 
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Logo animation */
 .logo {
   animation: fadeInDown 0.8s ease forwards;
@@ -449,16 +487,56 @@ html {
   animation: fadeInDown 0.5s ease 0.6s both;
 }
 
-/* Auth buttons animations */
-.login {
-  animation: scaleIn 0.6s ease 0.5s both;
-}
-
-.signup {
-  animation: scaleIn 0.6s ease 0.6s both;
+/* App button animation */
+.app-button {
+  animation: slideInRight 0.8s ease 0.6s both;
 }
 
 /* Dark mode toggle animation */
 .dark-mode-toggle {
   animation: fadeInUp 0.7s ease 0.7s both;
+}
+
+/* Pulse animation for app button */
+@keyframes pulse {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+  }
+  50% {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+  }
+}
+
+.app-button:hover {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Additional visual effects for app button */
+.app-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+.app-button:hover::after {
+  opacity: 1;
 }
