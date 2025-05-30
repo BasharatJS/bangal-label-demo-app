@@ -1,4 +1,4 @@
-/* Header.css */
+/* Header.css - Zero Flickering Solution */
 
 /* Base styles */
 .header {
@@ -11,6 +11,10 @@
   transition: all 0.3s ease;
   background-color: var(--background);
   color: var(--text-primary);
+  /* Prevent flickering during scroll */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .header-container {
@@ -22,6 +26,9 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  will-change: auto;
 }
 
 /* Light/Dark mode styles */
@@ -40,17 +47,220 @@
   color: var(--text-primary);
 }
 
-/* Left section - Logo */
+/* Left section - Logo Container - STABLE VERSION */
 .logo-container {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  /* Prevent any layout shifts */
+  flex-shrink: 0;
+  transform: translateZ(0);
 }
 
-.logo {
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  position: relative;
+  /* CRITICAL: Prevent all flickering */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: auto;
+  /* Only animate transform, nothing else */
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+  transform: translateZ(0) translateY(-1px);
+}
+
+/* Animated Logo - STABLE with Beautiful Hover Effects */
+.animated-logo {
+  width: 45px;
+  height: 45px;
+  margin-right: 12px;
+  position: relative;
+  overflow: visible;
+  /* CRITICAL: Complete stability */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  /* Fixed dimensions prevent layout shifts */
+  flex-shrink: 0;
+  min-width: 45px;
+  min-height: 45px;
+}
+
+.logo-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* PREVENT ALL FLICKERING */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, filter;
+  /* Smooth transitions */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Beautiful hover effect for logo - STABLE */
+.logo-link:hover .logo-svg {
+  transform: translateZ(0) scale(1.05);
+  filter: drop-shadow(0 4px 15px rgba(236, 72, 153, 0.3))
+    drop-shadow(0 0 25px rgba(139, 92, 246, 0.2));
+}
+
+/* Gentle logo hover animation */
+.logo-link:hover .animated-logo {
+  animation: stableLogoHover 1s ease-in-out;
+}
+
+@keyframes stableLogoHover {
+  0% {
+    transform: translateZ(0) scale(1);
+  }
+  50% {
+    transform: translateZ(0) scale(1.02) rotate(2deg);
+  }
+  100% {
+    transform: translateZ(0) scale(1);
+  }
+}
+
+/* SIMPLIFIED: Logo Circle - No Complex Animations */
+.logo-circle {
+  /* Static - no animation */
+  transform-origin: center;
+}
+
+/* REMOVED: Logo breathing animation that causes flickering */
+
+/* SIMPLIFIED: Logo Text - Minimal Animation */
+.logo-text {
+  /* No animation to prevent flickering */
+}
+
+/* COMPLETELY REMOVED: Floating particles that cause flickering */
+.particle {
+  /* Particles are now static */
+  opacity: 0.3;
+}
+
+/* REMOVED: All floating animations */
+
+/* SIMPLIFIED: Rotating Ring - Minimal Animation */
+.rotating-ring {
+  transform-origin: center;
+  /* Very slow, smooth rotation */
+  animation: slowRotate 20s linear infinite;
+}
+
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Logo Text - STABLE VERSION with Background Animation */
+.logo-text-main {
   font-size: 24px;
   font-weight: bold;
-  text-decoration: none;
   letter-spacing: 1px;
+  /* Beautiful gradient background animation - STABLE VERSION */
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--color-primary) 50%,
+    var(--text-primary) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Smooth text shimmer animation */
+  animation: stableTextShimmer 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  /* Stability */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: background-position;
+}
+
+@keyframes stableTextShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.logo-link:hover .logo-text-main {
+  /* Enhanced gradient on hover */
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 25%,
+    #ffffff 50%,
+    var(--color-secondary) 75%,
+    var(--color-primary) 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hoverGradientShift 2s ease-in-out infinite;
+  transform: translateZ(0) translateX(2px);
+}
+
+@keyframes hoverGradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* REMOVED: All complex entrance animations */
+
+/* Stable Magnetic Background Effect - Added Back */
+.logo-link::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: -1;
+  /* Prevent flickering */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.logo-link:hover::before {
+  opacity: 1;
+  transform: translateZ(0) scale(1.02);
 }
 
 /* Center section - Menu items */
@@ -77,7 +287,7 @@
   font-weight: 500;
   transition: color 0.3s ease;
   outline: none;
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-menu a:hover {
@@ -103,11 +313,10 @@
     var(--color-secondary)
   );
   border-radius: 2px;
-  transition: opacity 0.3s ease; /* Add transition for smoother effect */
+  transition: opacity 0.3s ease;
   opacity: 1;
 }
 
-/* Force the active state to stay during click */
 .nav-menu a.active:focus::after,
 .nav-menu a.active:active::after {
   opacity: 1;
@@ -196,7 +405,6 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Desktop dark mode toggle - positioned after app button */
 .dark-mode-toggle.desktop-toggle {
   margin-left: 15px;
 }
@@ -253,12 +461,10 @@
     padding: 0 15px;
   }
 
-  /* Hide desktop dark mode toggle on mobile */
   .dark-mode-toggle.desktop-toggle {
     display: none;
   }
 
-  /* Show the mobile menu button */
   .mobile-menu-button {
     display: block;
     z-index: 105;
@@ -269,17 +475,26 @@
     height: 100%;
   }
 
-  /* Structure of mobile header */
   .logo-container {
     flex: 1;
   }
 
-  /* Hide desktop app button */
+  .animated-logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    min-width: 35px;
+    min-height: 35px;
+  }
+
+  .logo-text-main {
+    font-size: 20px;
+  }
+
   .desktop-app-button {
     display: none;
   }
 
-  /* Center section - Menu items */
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -308,7 +523,7 @@
     flex-direction: column;
     width: 100%;
     text-align: center;
-    margin-bottom: 20px; /* Space between links and app button */
+    margin-bottom: 20px;
   }
 
   .nav-menu li {
@@ -322,14 +537,12 @@
     width: 100%;
   }
 
-  /* Fix active underline on mobile */
   .nav-menu a.active::after {
     width: 50px;
     left: 50%;
     transform: translateX(-50%);
   }
 
-  /* Show mobile app button directly after nav links */
   .mobile-app-button {
     display: none;
     flex-direction: column;
@@ -354,7 +567,6 @@
     justify-content: center;
   }
 
-  /* Fix mobile dark mode toggle position to align with hamburger */
   .dark-mode-toggle.mobile-toggle {
     position: absolute;
     right: 60px;
@@ -366,7 +578,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 24px; /* Match hamburger height */
+    height: 24px;
   }
 }
 
@@ -376,8 +588,16 @@
     height: 60px;
   }
 
-  .logo {
-    font-size: 20px;
+  .animated-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  .logo-text-main {
+    font-size: 18px;
   }
 
   .nav-menu {
@@ -400,7 +620,7 @@
   }
 }
 
-/* Add this to ensure smooth scrolling works properly on mobile */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
@@ -412,7 +632,7 @@ html {
   }
 }
 
-/* Animation keyframes */
+/* MINIMAL Animation keyframes - Only entrance animations */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -435,17 +655,6 @@ html {
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -457,47 +666,55 @@ html {
   }
 }
 
-/* Logo animation */
-.logo {
-  animation: fadeInDown 0.8s ease forwards;
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Menu items animations with staggered delay */
+/* Simple entrance animations only */
+.logo-link {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
 .nav-menu ul li:nth-child(1) a {
-  animation: fadeInDown 0.5s ease 0.1s both;
+  animation: fadeInDown 0.4s ease 0.1s both;
 }
 
 .nav-menu ul li:nth-child(2) a {
-  animation: fadeInDown 0.5s ease 0.2s both;
+  animation: fadeInDown 0.4s ease 0.15s both;
 }
 
 .nav-menu ul li:nth-child(3) a {
-  animation: fadeInDown 0.5s ease 0.3s both;
+  animation: fadeInDown 0.4s ease 0.2s both;
 }
 
 .nav-menu ul li:nth-child(4) a {
-  animation: fadeInDown 0.5s ease 0.4s both;
+  animation: fadeInDown 0.4s ease 0.25s both;
 }
 
 .nav-menu ul li:nth-child(5) a {
-  animation: fadeInDown 0.5s ease 0.5s both;
+  animation: fadeInDown 0.4s ease 0.3s both;
 }
 
 .nav-menu ul li:nth-child(6) a {
-  animation: fadeInDown 0.5s ease 0.6s both;
+  animation: fadeInDown 0.4s ease 0.35s both;
 }
 
-/* App button animation */
 .app-button {
-  animation: slideInRight 0.8s ease 0.6s both;
+  animation: slideInRight 0.6s ease 0.4s both;
 }
 
-/* Dark mode toggle animation */
 .dark-mode-toggle {
-  animation: fadeInUp 0.7s ease 0.7s both;
+  animation: fadeInUp 0.6s ease 0.45s both;
 }
 
-/* Pulse animation for app button */
+/* Minimal pulse animation for app button */
 @keyframes pulse {
   0% {
     transform: translateY(0);
@@ -517,7 +734,6 @@ html {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Additional visual effects for app button */
 .app-button::after {
   content: '';
   position: absolute;
@@ -539,4 +755,13 @@ html {
 
 .app-button:hover::after {
   opacity: 1;
+}
+
+/* Dark Theme - Simple styles only */
+.dark-theme .logo-svg {
+  filter: none;
+}
+
+.dark-theme .logo-link:hover .logo-svg {
+  filter: none;
 }

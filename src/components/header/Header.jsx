@@ -130,6 +130,98 @@ const ResponsiveHeader = () => {
     // Or use: window.location.href = 'https://your-app-url.com' to open in same tab
   }
 
+  // Animated Logo Component
+  const AnimatedLogo = () => (
+    <div className="animated-logo">
+      <svg viewBox="0 0 50 50" className="logo-svg">
+        <defs>
+          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="var(--color-primary)" />
+            <stop offset="100%" stopColor="var(--color-secondary)" />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* Background Circle with Animation */}
+        <circle
+          cx="25"
+          cy="25"
+          r="22"
+          fill="url(#logoGradient)"
+          stroke="white"
+          strokeWidth="2"
+          className="logo-circle"
+          filter="url(#glow)"
+        />
+
+        {/* Floating Particles */}
+        <circle
+          cx="15"
+          cy="12"
+          r="1.5"
+          fill="white"
+          opacity="0.6"
+          className="particle particle-1"
+        />
+        <circle
+          cx="38"
+          cy="15"
+          r="1"
+          fill="white"
+          opacity="0.4"
+          className="particle particle-2"
+        />
+        <circle
+          cx="12"
+          cy="38"
+          r="1"
+          fill="white"
+          opacity="0.5"
+          className="particle particle-3"
+        />
+        <circle
+          cx="38"
+          cy="38"
+          r="1.5"
+          fill="white"
+          opacity="0.3"
+          className="particle particle-4"
+        />
+
+        {/* BL Text */}
+        <text
+          x="25"
+          y="32"
+          textAnchor="middle"
+          fontSize="16"
+          fontWeight="bold"
+          fill="white"
+          className="logo-text"
+        >
+          BL
+        </text>
+
+        {/* Rotating Ring */}
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          fill="none"
+          stroke="rgba(255,255,255,0.2)"
+          strokeWidth="1"
+          strokeDasharray="5,10"
+          className="rotating-ring"
+        />
+      </svg>
+    </div>
+  )
+
   return (
     <>
       <header
@@ -139,15 +231,16 @@ const ResponsiveHeader = () => {
         }`}
       >
         <div className="header-container">
-          {/* Left section - Logo */}
+          {/* Left section - Logo with Bengal Label */}
           <div className="logo-container">
             <a
               href="#hero"
-              className="logo"
+              className="logo-link"
               onClick={(e) => scrollToSection('hero', e)}
               onMouseDown={handleMouseDown}
             >
-              Bengal Label
+              <AnimatedLogo />
+              <span className="logo-text-main">Bengal Label</span>
             </a>
           </div>
 
