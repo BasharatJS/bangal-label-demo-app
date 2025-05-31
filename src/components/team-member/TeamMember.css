@@ -1,10 +1,12 @@
-/* TeamMembers.css - Complete Fixed Version */
+/* TeamMembers.css - Complete Updated with Unique Background Animations */
 
 .team-members-section {
   background: linear-gradient(
-    135deg,
+    160deg,
     var(--background) 0%,
-    var(--background-secondary) 50%,
+    var(--background-secondary) 25%,
+    var(--background) 50%,
+    var(--background-secondary) 75%,
     var(--background) 100%
   );
   padding: 100px 0;
@@ -13,7 +15,7 @@
   min-height: 100vh;
 }
 
-/* Background Elements */
+/* Unique Background Elements */
 .team-bg-container {
   position: absolute;
   top: 0;
@@ -22,53 +24,386 @@
   height: 100%;
   pointer-events: none;
   z-index: 1;
+  overflow: hidden;
 }
 
-.floating-element {
+/* DNA Helix Animation */
+.dna-container {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dna-strand {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ec4899, #8b5cf6);
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.strand-left {
+  left: 40%;
+  background: linear-gradient(45deg, #06b6d4, #10b981);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+.strand-right {
+  right: 40%;
+  background: linear-gradient(45deg, #f59e0b, #ef4444);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.matrix-column {
+  position: absolute;
+  font-size: 1.5rem;
+  color: rgba(16, 185, 129, 0.6);
+  filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.8));
+  z-index: 2;
+}
+
+/* Constellation Network */
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.constellation-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, rgba(236, 72, 153, 0.8));
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.star-1 {
+  top: 15%;
+  left: 10%;
+}
+.star-2 {
+  top: 25%;
+  left: 25%;
+}
+.star-3 {
+  top: 35%;
+  left: 40%;
+}
+.star-4 {
+  top: 20%;
+  left: 60%;
+}
+.star-5 {
+  top: 40%;
+  left: 75%;
+}
+.star-6 {
+  top: 60%;
+  left: 15%;
+}
+.star-7 {
+  top: 70%;
+  left: 35%;
+}
+.star-8 {
+  top: 55%;
+  left: 55%;
+}
+.star-9 {
+  top: 75%;
+  left: 70%;
+}
+.star-10 {
+  top: 45%;
+  left: 85%;
+}
+.star-11 {
+  top: 80%;
+  left: 20%;
+}
+.star-12 {
+  top: 65%;
+  left: 90%;
+}
+
+.constellation-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+/* Floating Bubbles */
+.floating-bubble {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(139, 92, 246, 0.3),
     rgba(236, 72, 153, 0.1),
-    rgba(139, 92, 246, 0.1)
+    transparent
   );
-  filter: blur(3px);
+  backdrop-filter: blur(2px);
 }
 
-.element-1 {
-  width: 300px;
-  height: 300px;
-  top: 10%;
-  left: -5%;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.08),
-    rgba(147, 51, 234, 0.08)
-  );
+.bubble-1 {
+  width: 20px;
+  height: 20px;
+  left: 5%;
+}
+.bubble-2 {
+  width: 30px;
+  height: 30px;
+  left: 15%;
+}
+.bubble-3 {
+  width: 25px;
+  height: 25px;
+  left: 25%;
+}
+.bubble-4 {
+  width: 35px;
+  height: 35px;
+  left: 35%;
+}
+.bubble-5 {
+  width: 28px;
+  height: 28px;
+  left: 45%;
+}
+.bubble-6 {
+  width: 22px;
+  height: 22px;
+  left: 55%;
+}
+.bubble-7 {
+  width: 32px;
+  height: 32px;
+  left: 65%;
+}
+.bubble-8 {
+  width: 26px;
+  height: 26px;
+  left: 75%;
+}
+.bubble-9 {
+  width: 24px;
+  height: 24px;
+  left: 85%;
+}
+.bubble-10 {
+  width: 29px;
+  height: 29px;
+  left: 95%;
+}
+.bubble-11 {
+  width: 21px;
+  height: 21px;
+  left: 8%;
+}
+.bubble-12 {
+  width: 33px;
+  height: 33px;
+  left: 18%;
+}
+.bubble-13 {
+  width: 27px;
+  height: 27px;
+  left: 28%;
+}
+.bubble-14 {
+  width: 31px;
+  height: 31px;
+  left: 38%;
+}
+.bubble-15 {
+  width: 23px;
+  height: 23px;
+  left: 48%;
+}
+.bubble-16 {
+  width: 34px;
+  height: 34px;
+  left: 58%;
+}
+.bubble-17 {
+  width: 26px;
+  height: 26px;
+  left: 68%;
+}
+.bubble-18 {
+  width: 28px;
+  height: 28px;
+  left: 78%;
+}
+.bubble-19 {
+  width: 25px;
+  height: 25px;
+  left: 88%;
+}
+.bubble-20 {
+  width: 30px;
+  height: 30px;
+  left: 98%;
+}
+.bubble-21 {
+  width: 22px;
+  height: 22px;
+  left: 12%;
+}
+.bubble-22 {
+  width: 29px;
+  height: 29px;
+  left: 22%;
+}
+.bubble-23 {
+  width: 27px;
+  height: 27px;
+  left: 32%;
+}
+.bubble-24 {
+  width: 31px;
+  height: 31px;
+  left: 42%;
+}
+.bubble-25 {
+  width: 24px;
+  height: 24px;
+  left: 52%;
 }
 
-.element-2 {
-  width: 200px;
-  height: 200px;
-  top: 60%;
-  right: -3%;
-  background: linear-gradient(
-    135deg,
-    rgba(236, 72, 153, 0.08),
-    rgba(251, 146, 60, 0.08)
-  );
+/* Animated Grid Pattern */
+.animated-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      90deg,
+      rgba(6, 182, 212, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: skew(-15deg);
 }
 
-.element-3 {
+/* Pulsing Circles */
+.pulse-circle {
+  position: absolute;
+  border: 2px solid;
+  border-radius: 50%;
+  border-color: rgba(236, 72, 153, 0.4);
+}
+
+.circle-1 {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 10%;
+}
+.circle-2 {
   width: 150px;
   height: 150px;
+  top: 30%;
+  right: 15%;
+}
+.circle-3 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  left: 20%;
+}
+.circle-4 {
+  width: 120px;
+  height: 120px;
+  bottom: 25%;
+  right: 25%;
+}
+.circle-5 {
+  width: 90px;
+  height: 90px;
+  top: 45%;
+  left: 50%;
+}
+.circle-6 {
+  width: 110px;
+  height: 110px;
+  bottom: 40%;
+  left: 30%;
+}
+.circle-7 {
+  width: 70px;
+  height: 70px;
+  top: 70%;
+  right: 40%;
+}
+.circle-8 {
+  width: 130px;
+  height: 130px;
   bottom: 15%;
-  left: 10%;
-  background: linear-gradient(
-    135deg,
-    rgba(16, 185, 129, 0.08),
-    rgba(6, 182, 212, 0.08)
-  );
+  left: 60%;
+}
+
+/* Energy Waves */
+.energy-waves {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.energy-wave {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 3px solid;
+  border-radius: 50%;
+  border-color: rgba(16, 185, 129, 0.4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wave-1 {
+  border-color: rgba(236, 72, 153, 0.4);
+}
+.wave-2 {
+  border-color: rgba(139, 92, 246, 0.4);
+}
+.wave-3 {
+  border-color: rgba(6, 182, 212, 0.4);
+}
+.wave-4 {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+.wave-5 {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+.wave-6 {
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
 .team-members-container {
@@ -456,6 +791,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-bottom: 25px;
 }
 
 .department-badge {
@@ -471,6 +807,7 @@
     var(--color-secondary)
   );
   color: white;
+  /* margin-bottom: 30px; */
 }
 
 .member-bio {
@@ -639,7 +976,7 @@
   letter-spacing: 1px;
 }
 
-/* Animations */
+/* Enhanced Animations */
 @keyframes float {
   0%,
   100% {
@@ -669,6 +1006,70 @@
   50% {
     transform: scale(1.05);
     opacity: 0.8;
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes dna-helix {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+@keyframes constellation-twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(100vh) scale(0.3);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes energy-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
   }
 }
 
@@ -790,6 +1191,13 @@
   .stat-number {
     font-size: 2rem;
   }
+
+  /* Hide complex animations on mobile */
+  .matrix-rain,
+  .constellation,
+  .dna-container {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -821,7 +1229,11 @@
     height: 45px;
   }
 
-  .floating-element {
+  /* Hide all background animations on very small screens */
+  .floating-bubble,
+  .pulse-circle,
+  .energy-waves,
+  .animated-grid {
     display: none;
   }
 }
@@ -843,12 +1255,26 @@
   );
 }
 
-.dark-theme .floating-element {
-  background: linear-gradient(
-    135deg,
-    rgba(236, 72, 153, 0.15),
-    rgba(139, 92, 246, 0.15)
-  );
+.dark-theme .constellation-star {
+  background: radial-gradient(circle, #fff, rgba(139, 92, 246, 0.8));
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+}
+
+.dark-theme .dna-strand {
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.8);
+}
+
+.dark-theme .strand-left {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+}
+
+.dark-theme .strand-right {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.8);
+}
+
+.dark-theme .matrix-column {
+  color: rgba(16, 185, 129, 0.8);
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 1));
 }
 
 .dark-theme .decoration-dot {
@@ -861,4 +1287,47 @@
 
 .dark-theme .status-indicator {
   border-color: var(--dark-card-bg);
+}
+
+/* Custom Scrollbar for better UX */
+.team-members-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.team-members-section::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+  border-radius: 4px;
+}
+
+.team-members-section::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ec4899, #8b5cf6, #06b6d4);
+  border-radius: 4px;
+}
+
+.team-members-section::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #db2777, #7c3aed, #0891b2);
+}
+
+/* Performance Optimizations */
+.team-bg-container * {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dna-strand,
+  .matrix-column,
+  .floating-bubble,
+  .pulse-circle,
+  .energy-wave,
+  .constellation-star {
+    animation: none !important;
+  }
+
+  .animated-grid {
+    animation: none !important;
+    opacity: 0.1 !important;
+  }
 }

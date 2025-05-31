@@ -166,7 +166,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 9,
+      id: 10,
       name: 'Anwar Ali',
       role: 'Packing Operator',
       department: 'Packing Team',
@@ -215,7 +215,7 @@ const TeamMembers = () => {
     }
   }, [])
 
-  // Animation variants
+  // Unique Animation variants for Team Members
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -271,62 +271,244 @@ const TeamMembers = () => {
     },
   }
 
-  const skillVariants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: (index) => ({
-      scale: 1,
-      opacity: 1,
+  // New Unique Background Animation Variants
+  const waveVariants = {
+    animate: (index) => ({
+      pathLength: [0, 1],
+      pathOffset: [0, 1],
       transition: {
-        type: 'spring',
-        stiffness: 200,
-        delay: index * 0.1,
+        duration: 3 + index,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    }),
+  }
+
+  const meshVariants = {
+    animate: {
+      scale: [1, 1.2, 1],
+      rotate: [0, 90, 180, 270, 360],
+      opacity: [0.1, 0.3, 0.1],
+      transition: {
+        duration: 12,
+        repeat: Infinity,
+        ease: 'linear',
+      },
+    },
+  }
+
+  const spiralVariants = {
+    animate: (index) => ({
+      rotate: [0, 360],
+      scale: [0.8, 1.3, 0.8],
+      x: [0, 50, -50, 0],
+      y: [0, -30, 30, 0],
+      transition: {
+        duration: 8 + index * 2,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    }),
+  }
+
+  const liquidVariants = {
+    animate: {
+      borderRadius: [
+        '60% 40% 30% 70% / 60% 30% 70% 40%',
+        '30% 60% 70% 40% / 50% 60% 30% 60%',
+        '40% 50% 60% 30% / 70% 50% 40% 30%',
+        '60% 40% 30% 70% / 60% 30% 70% 40%',
+      ],
+      scale: [1, 1.1, 0.9, 1],
+      transition: {
+        duration: 8,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    },
+  }
+
+  const geometricVariants = {
+    animate: (index) => ({
+      rotate: [0, 120, 240, 360],
+      scale: [1, 0.8, 1.2, 1],
+      skewX: [0, 10, -10, 0],
+      skewY: [0, -5, 5, 0],
+      transition: {
+        duration: 6 + index,
+        repeat: Infinity,
+        ease: 'easeInOut',
       },
     }),
   }
 
   return (
     <section className="team-members-section" ref={ref} id="team-members">
-      {/* Background Elements */}
+      {/* Unique Background Elements for Team Members */}
       <div className="team-bg-container">
+        {/* DNA Helix Animation */}
+        <div className="dna-container">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={`dna-${i}`}
+              className={`dna-strand strand-${i % 2 === 0 ? 'left' : 'right'}`}
+              animate={{
+                y: [0, -1000],
+                rotate: [0, 360],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 8 + i * 0.3,
+                repeat: Infinity,
+                ease: 'linear',
+                delay: i * 0.2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Matrix Rain Effect */}
+        <div className="matrix-rain">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={`matrix-${i}`}
+              className="matrix-column"
+              style={{ left: `${i * 7}%` }}
+              animate={{
+                y: ['-100vh', '100vh'],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 4,
+                repeat: Infinity,
+                ease: 'linear',
+                delay: i * 0.3,
+              }}
+            >
+              {['⭐', '💫', '✨', '🌟', '💎'][Math.floor(Math.random() * 5)]}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Constellation Network */}
+        <div className="constellation">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={`star-${i}`}
+              className={`constellation-star star-${i + 1}`}
+              animate={{
+                scale: [0.5, 1.5, 0.5],
+                opacity: [0.3, 1, 0.3],
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: i * 0.4,
+              }}
+            />
+          ))}
+
+          {/* Connecting Lines */}
+          <svg className="constellation-lines" viewBox="0 0 1200 800">
+            {[...Array(8)].map((_, i) => (
+              <motion.line
+                key={`line-${i}`}
+                x1={`${(i * 150) % 1200}`}
+                y1={`${(i * 80) % 800}`}
+                x2={`${((i + 1) * 150) % 1200}`}
+                y2={`${((i + 1) * 80) % 800}`}
+                stroke="rgba(236, 72, 153, 0.3)"
+                strokeWidth="2"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: [0, 1, 0] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: i * 0.3,
+                }}
+              />
+            ))}
+          </svg>
+        </div>
+
+        {/* Floating Bubbles */}
+        {[...Array(25)].map((_, i) => (
+          <motion.div
+            key={`bubble-${i}`}
+            className={`floating-bubble bubble-${i + 1}`}
+            animate={{
+              y: [800, -200],
+              x: [
+                Math.sin(i) * 100,
+                Math.sin(i + 1) * 150,
+                Math.sin(i + 2) * 200,
+              ],
+              scale: [0.3, 1, 0.3],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 6,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: i * 0.4,
+            }}
+          />
+        ))}
+
+        {/* Animated Grid Pattern */}
         <motion.div
-          className="floating-element element-1"
+          className="animated-grid"
           animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-            rotate: [0, 360],
+            backgroundPosition: ['0% 0%', '100% 100%'],
+            opacity: [0.1, 0.3, 0.1],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: 'linear',
           }}
         />
-        <motion.div
-          className="floating-element element-2"
-          animate={{
-            y: [20, -20, 20],
-            x: [10, -10, 10],
-            rotate: [360, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="floating-element element-3"
-          animate={{
-            y: [-15, 15, -15],
-            x: [-5, 5, -5],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+
+        {/* Pulsing Circles */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`pulse-${i}`}
+            className={`pulse-circle circle-${i + 1}`}
+            animate={{
+              scale: [0, 3, 0],
+              opacity: [0.8, 0, 0.8],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeOut',
+              delay: i * 0.5,
+            }}
+          />
+        ))}
+
+        {/* Energy Waves */}
+        <div className="energy-waves">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={`wave-${i}`}
+              className={`energy-wave wave-${i + 1}`}
+              animate={{
+                scaleX: [0, 1.5, 0],
+                scaleY: [1, 0.5, 1],
+                opacity: [0, 0.7, 0],
+              }}
+              transition={{
+                duration: 3 + i * 0.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: i * 0.3,
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       <motion.div
@@ -464,7 +646,7 @@ const TeamMembers = () => {
                         }}
                         transition={{ duration: 0.5 }}
                       >
-                        {member.icon}
+                        ⭐
                       </motion.div>
                     </motion.div>
                   </motion.div>
@@ -524,36 +706,6 @@ const TeamMembers = () => {
                   >
                     {member.bio}
                   </motion.p>
-
-                  {/* Skills */}
-                  {/* <motion.div
-                    className="member-skills"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                  >
-                    <h4 className="skills-title">Skills</h4>
-                    <div className="skills-container">
-                      {member.skills.map((skill, skillIndex) => (
-                        <motion.span
-                          key={skillIndex}
-                          className="skill-tag"
-                          variants={skillVariants}
-                          custom={skillIndex}
-                          initial="hidden"
-                          animate="visible"
-                          whileHover={{
-                            scale: 1.1,
-                            backgroundColor: 'var(--color-primary)',
-                            color: 'white',
-                            transition: { duration: 0.2 },
-                          }}
-                        >
-                          {skill}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div> */}
 
                   {/* Social Links */}
                   <motion.div

@@ -8,6 +8,7 @@ import OurJourney from './components/our-journey/OurJourney'
 import Testimonials from './components/testimonials/Testimonials'
 import OurTeam from './components/our-team/OurTeam'
 import TeamMembers from './components/team-member/TeamMember'
+import TeamSupport from './components/team-support/TeamSupport'
 
 function App() {
   const { theme } = useTheme() // Access the current theme
@@ -20,6 +21,7 @@ function App() {
         <CardGrid />
         <Testimonials />
         <OurTeam />
+        <TeamSupport />
         <TeamMembers />
       </main>
       <Footer />
