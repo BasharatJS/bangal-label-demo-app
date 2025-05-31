@@ -8,6 +8,7 @@ import Image4 from '../../assets/images/image4.jpg'
 import Image5 from '../../assets/images/image5.jpg'
 import Image6 from '../../assets/images/image6.jpg'
 import Image7 from '../../assets/images/image7.jpg'
+import Image8 from '../../assets/images/image8.jpeg'
 
 const TeamMembers = () => {
   const ref = useRef(null)
@@ -22,151 +23,128 @@ const TeamMembers = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'Creative Director',
+      name: 'Prashan kr Jena',
+      role: 'MuCad Designer',
       department: 'Design Team',
-      experience: '8 years',
+      experience: '12 years',
       image: Image1,
       bio: 'Leading innovative design solutions with passion for creating memorable brand experiences.',
-      //   skills: [
-      //     'UI/UX Design',
-      //     'Brand Strategy',
-      //     'Creative Leadership',
-      //     'Design Systems',
-      //   ],
       gradient: 'from-pink-500 to-rose-600',
       bgColor: 'bg-pink-50',
-      icon: '🎨',
       social: {
         linkedin: '#',
         twitter: '#',
-        email: 'sarah@bengallabel.com',
+        email: 'prashan@bengal.com',
       },
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      role: 'Lead Developer',
-      department: 'Technology',
-      experience: '6 years',
-      image: Image2,
-      bio: 'Full-stack developer passionate about building scalable and efficient web applications.',
-      //   skills: ['React.js', 'Node.js', 'Python', 'Cloud Architecture'],
-      gradient: 'from-blue-500 to-indigo-600',
-      bgColor: 'bg-blue-50',
-      icon: '💻',
+      name: 'SK Naqib',
+      role: 'Assistant Manager',
+      department: 'Management Team',
+      experience: '4 years',
+      image: Image4,
+      bio: 'Ensuring excellence in every product with meticulous attention to detail and quality standards.',
+      gradient: 'from-emerald-500 to-green-600',
+      bgColor: 'bg-emerald-50',
       social: {
         linkedin: '#',
-        github: '#',
-        email: 'michael@bengallabel.com',
+        email: 'suresh@bengal.com',
       },
     },
     {
       id: 3,
-      name: 'Emily Rodriguez',
-      role: 'Marketing Manager',
-      department: 'Marketing',
-      experience: '5 years',
-      image: Image3,
-      bio: 'Strategic marketing professional driving brand growth through innovative campaigns.',
-      //   skills: ['Digital Marketing', 'SEO/SEM', 'Content Strategy', 'Analytics'],
-      gradient: 'from-purple-500 to-violet-600',
-      bgColor: 'bg-purple-50',
-      icon: '📊',
+      name: 'Sk Insan',
+      role: 'Packing & Delivery Incharge',
+      department: 'Packing Team',
+      experience: '6 years',
+      image: Image2,
+      bio: 'Full-stack developer passionate about building scalable and efficient web applications.',
+      gradient: 'from-blue-500 to-indigo-600',
+      bgColor: 'bg-blue-50',
       social: {
         linkedin: '#',
-        instagram: '#',
-        email: 'emily@bengallabel.com',
+        github: '#',
+        email: 'skinsan@bengallabel.com',
       },
     },
     {
       id: 4,
-      name: 'David Kim',
-      role: 'Quality Assurance Lead',
-      department: 'Production',
-      experience: '7 years',
-      image: Image4,
-      bio: 'Ensuring excellence in every product with meticulous attention to detail and quality standards.',
-      //   skills: [
-      //     'Quality Control',
-      //     'Process Improvement',
-      //     'Testing',
-      //     'Documentation',
-      //   ],
-      gradient: 'from-emerald-500 to-green-600',
-      bgColor: 'bg-emerald-50',
-      icon: '✅',
+      name: 'Parsuram Rout',
+      role: 'Production Incharge',
+      department: 'Production Team',
+      experience: '20 years',
+      image: Image3,
+      bio: 'Leading production team with expertise in managing production processes and ensuring quality standards.',
+      gradient: 'from-purple-500 to-violet-600',
+      bgColor: 'bg-purple-50',
       social: {
         linkedin: '#',
-        email: 'david@bengallabel.com',
+        instagram: '#',
+        email: 'parsuram@bengal.com',
       },
     },
     {
       id: 5,
-      name: 'Jessica Taylor',
-      role: 'Sales Director',
-      department: 'Sales',
-      experience: '9 years',
+      name: 'Basanta Poi',
+      role: 'Operator',
+      department: 'Production Team',
+      experience: '16 years',
       image: Image5,
-      bio: 'Building lasting client relationships and driving revenue growth through strategic sales initiatives.',
-      //   skills: [
-      //     'Client Relations',
-      //     'Business Development',
-      //     'Negotiation',
-      //     'Market Analysis',
-      //   ],
+      bio: 'Ensuring smooth production and delivery processes.',
       gradient: 'from-orange-500 to-red-600',
       bgColor: 'bg-orange-50',
-      icon: '🤝',
       social: {
         linkedin: '#',
         twitter: '#',
-        email: 'jessica@bengallabel.com',
+        email: 'basanta@bengal.com',
       },
     },
     {
       id: 6,
-      name: 'Alex Thompson',
-      role: 'Operations Manager',
-      department: 'Operations',
-      experience: '6 years',
+      name: 'Saikat Dutta',
+      role: 'Operator',
+      department: 'Production Team',
+      experience: '13 years',
       image: Image6,
-      bio: 'Optimizing workflows and ensuring smooth operations across all departments.',
-      //   skills: [
-      //     'Project Management',
-      //     'Process Optimization',
-      //     'Team Leadership',
-      //     'Analytics',
-      //   ],
+      bio: 'Ensuring smooth production and delivery processes.',
       gradient: 'from-teal-500 to-cyan-600',
       bgColor: 'bg-teal-50',
-      icon: '⚙️',
       social: {
         linkedin: '#',
-        email: 'alex@bengallabel.com',
+        email: 'saikat@bengal.com',
       },
     },
     {
       id: 7,
-      name: 'Rachel Williams',
-      role: 'HR Director',
-      department: 'Human Resources',
-      experience: '8 years',
+      name: 'Biren Bera',
+      role: 'Operator',
+      department: 'Production Team',
+      experience: '15 years',
       image: Image7,
-      bio: 'Fostering a positive work culture and supporting team growth and development.',
-      //   skills: [
-      //     'Talent Management',
-      //     'Employee Relations',
-      //     'Training',
-      //     'Culture Building',
-      //   ],
+      bio: 'Ensuring smooth production and delivery processes.',
       gradient: 'from-violet-500 to-purple-600',
       bgColor: 'bg-violet-50',
-      icon: '👥',
       social: {
         linkedin: '#',
         twitter: '#',
-        email: 'rachel@bengallabel.com',
+        email: 'biren@bengal.com',
+      },
+    },
+    {
+      id: 8,
+      name: 'Manab Pal',
+      role: 'Cutfold Operator',
+      department: 'Production Team',
+      experience: '7 years',
+      image: Image8,
+      bio: 'Ensuring smooth production and delivery processes.',
+      gradient: 'from-blue-500 to-indigo-600',
+      bgColor: 'bg-blue-50',
+      social: {
+        linkedin: '#',
+        twitter: '#',
+        email: 'biren@bengal.com',
       },
     },
   ]
@@ -611,7 +589,7 @@ const TeamMembers = () => {
               animate={isInView ? { scale: 1 } : { scale: 0 }}
               transition={{ delay: 1.7, type: 'spring', stiffness: 200 }}
             >
-              7
+              {teamMembers.length}+
             </motion.h3>
             <p className="stat-label">Team Members</p>
           </div>
@@ -635,7 +613,7 @@ const TeamMembers = () => {
               animate={isInView ? { scale: 1 } : { scale: 0 }}
               transition={{ delay: 2.1, type: 'spring', stiffness: 200 }}
             >
-              49+
+              {teamMembers.reduce((total, member) => total + Number(member.experience.split(' ')[0]), 0)}+
             </motion.h3>
             <p className="stat-label">Years Experience</p>
           </div>

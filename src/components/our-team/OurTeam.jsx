@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './OurTeam.css'
 import CofounderImage from '../../assets/images/founder-image.jpg'
+import CofounderImage1 from '../../assets/images/founder-image1.jpeg'
+import CofounderImage2 from '../../assets/images/founder-image2.jpeg'
 
 const OurTeam = () => {
   const ref = useRef(null)
@@ -17,8 +19,7 @@ const OurTeam = () => {
       experience: '10+ years of experience in the woven label industry',
       description:
         'Leading expert in woven label manufacturing with deep industry knowledge and innovative manufacturing techniques.',
-      image:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      image: CofounderImage1,
       specialties: [
         'Label Manufacturing',
         'Quality Control',
@@ -30,7 +31,7 @@ const OurTeam = () => {
     },
     {
       id: 2,
-      name: 'Abd Sarfraj Khan',
+      name: 'Abdul Sarfraj Khan',
       role: 'Co-Founder & Business Director',
       experience:
         '30+ years of combined experience in garment and accessories industry',
@@ -48,14 +49,13 @@ const OurTeam = () => {
     },
     {
       id: 3,
-      name: 'Imran Haldar',
+      name: 'Manick Haldar',
       role: 'Operations Director',
       experience:
         'Multi-generational expertise from the family garment business legacy',
       description:
         'Bringing family legacy and operational excellence to ensure smooth production and delivery processes.',
-      image:
-        'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop&crop=face',
+      image: CofounderImage2,
       specialties: [
         'Operations Management',
         'Supply Chain',

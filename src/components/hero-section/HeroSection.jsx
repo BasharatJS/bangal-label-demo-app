@@ -146,29 +146,6 @@ const HeroSection = () => {
         >
           Precision Craftsmanship. Unmatched Quality. Exceptional Service.
         </motion.p>
-
-        <div className="hero-buttons">
-          <motion.button
-            className="hero-button primary-button"
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
-          >
-            Get a Free Quote
-          </motion.button>
-          <motion.button
-            className="hero-button secondary-button"
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
-          >
-            Explore Our Products
-          </motion.button>
-        </div>
       </motion.div>
     </div>
   )

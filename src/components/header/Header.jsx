@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Header.css'
 import { useTheme } from '../../theme/ThemeContext'
+import { Lock } from 'lucide-react'
 
 const ResponsiveHeader = () => {
   const { theme, toggleTheme } = useTheme()
@@ -126,7 +127,7 @@ const ResponsiveHeader = () => {
     }
 
     // You can replace this URL with your actual app URL
-    window.open('https://your-app-url.com', '_blank')
+    window.open('https://bengal-label-app.expo.app', '_blank')
     // Or use: window.location.href = 'https://your-app-url.com' to open in same tab
   }
 
@@ -332,7 +333,8 @@ const ResponsiveHeader = () => {
             {/* Mobile app button - Only visible in mobile menu */}
             <div className={`mobile-app-button ${menuOpen ? 'active' : ''}`}>
               <button className="app-button" onClick={handleAppLinkClick}>
-                🚀 Launch App
+                <Lock />
+                Members Login
               </button>
             </div>
           </nav>
@@ -342,7 +344,8 @@ const ResponsiveHeader = () => {
             {/* Desktop app button */}
             <div className="desktop-app-button">
               <button className="app-button" onClick={handleAppLinkClick}>
-                🚀 Launch App
+                <Lock />
+                Members Login
               </button>
 
               {/* Desktop dark mode toggle - Only visible on desktop */}
