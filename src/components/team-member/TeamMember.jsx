@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import './TeamMember.css'
-import Image0 from '../../assets/images/image0.jpeg'
+import Image10 from '../../assets/images/image10.jpeg'
 import Image1 from '../../assets/images/image1.jpg'
 import Image2 from '../../assets/images/image2.jpg'
 import Image3 from '../../assets/images/image3.jpg'
@@ -29,7 +29,7 @@ const TeamMembers = () => {
       role: 'Manager',
       department: 'Management Team',
       experience: '12 years',
-      image: Image0,
+      image: Image10,
       bio: 'Experienced manager with a proven track record of leading teams and driving business growth.',
       gradient: 'from-emerald-500 to-green-600',
       bgColor: 'bg-emerald-50',
