@@ -9,6 +9,7 @@ import Image5 from '../../assets/images/image5.jpg'
 import Image6 from '../../assets/images/image6.jpg'
 import Image7 from '../../assets/images/image7.jpg'
 import Image8 from '../../assets/images/image8.jpeg'
+import Image9 from '../../assets/images/image9.jpg'
 
 const TeamMembers = () => {
   const ref = useRef(null)
@@ -138,6 +139,22 @@ const TeamMembers = () => {
       department: 'Production Team',
       experience: '7 years',
       image: Image8,
+      bio: 'Ensuring smooth production and delivery processes.',
+      gradient: 'from-blue-500 to-indigo-600',
+      bgColor: 'bg-blue-50',
+      social: {
+        linkedin: '#',
+        twitter: '#',
+        email: 'biren@bengal.com',
+      },
+    },
+    {
+      id: 9,
+      name: 'Anwar Ali',
+      role: 'Packing Operator',
+      department: 'Packing Team',
+      experience: '7 years',
+      image: Image9,
       bio: 'Ensuring smooth production and delivery processes.',
       gradient: 'from-blue-500 to-indigo-600',
       bgColor: 'bg-blue-50',
@@ -613,7 +630,12 @@ const TeamMembers = () => {
               animate={isInView ? { scale: 1 } : { scale: 0 }}
               transition={{ delay: 2.1, type: 'spring', stiffness: 200 }}
             >
-              {teamMembers.reduce((total, member) => total + Number(member.experience.split(' ')[0]), 0)}+
+              {teamMembers.reduce(
+                (total, member) =>
+                  total + Number(member.experience.split(' ')[0]),
+                0
+              )}
+              +
             </motion.h3>
             <p className="stat-label">Years Experience</p>
           </div>

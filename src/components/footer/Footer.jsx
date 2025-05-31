@@ -461,9 +461,9 @@ const Footer = () => {
       >
         <div className="footer-bottom-content">
           <div className="footer-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/legal">Legal Notice</a>
-            <a href="/terms">Terms of Service</a>
+            <a href="/">Privacy Policy</a>
+            <a href="/">Legal Notice</a>
+            <a href="/">Terms of Service</a>
           </div>
           <div className="copyright">
             ©{new Date().getFullYear()} Bengal Label Inc. All rights reserved.
