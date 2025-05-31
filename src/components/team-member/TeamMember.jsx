@@ -10,6 +10,7 @@ import Image6 from '../../assets/images/image6.jpg'
 import Image7 from '../../assets/images/image7.jpg'
 import Image8 from '../../assets/images/image8.jpeg'
 import Image9 from '../../assets/images/image9.jpg'
+import Image0 from '../../assets/images/image0.jpeg'
 
 const TeamMembers = () => {
   const ref = useRef(null)
@@ -24,6 +25,22 @@ const TeamMembers = () => {
   const teamMembers = [
     {
       id: 1,
+      name: 'Mohammad Firoz Nayeem',
+      role: 'Manager',
+      department: 'Management Team',
+      experience: '12 years',
+      image: Image0,
+      bio: 'Experienced manager with a proven track record of leading teams and driving business growth.',
+      gradient: 'from-emerald-500 to-green-600',
+      bgColor: 'bg-emerald-50',
+      social: {
+        linkedin: '#',
+        twitter: '#',
+        email: 'mdfiroz@bengal.com',
+      },
+    },
+    {
+      id: 2,
       name: 'Prashan kr Jena',
       role: 'MuCad Designer',
       department: 'Design Team',
@@ -39,7 +56,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 2,
+      id: 3,
       name: 'SK Naqib',
       role: 'Assistant Manager',
       department: 'Management Team',
@@ -54,7 +71,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 3,
+      id: 4,
       name: 'Sk Insan',
       role: 'Packing & Delivery Incharge',
       department: 'Packing Team',
@@ -70,7 +87,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 4,
+      id: 5,
       name: 'Parsuram Rout',
       role: 'Production Incharge',
       department: 'Production Team',
@@ -86,7 +103,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 5,
+      id: 6,
       name: 'Basanta Poi',
       role: 'Operator',
       department: 'Production Team',
@@ -102,7 +119,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 6,
+      id: 7,
       name: 'Saikat Dutta',
       role: 'Operator',
       department: 'Production Team',
@@ -117,7 +134,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 7,
+      id: 8,
       name: 'Biren Bera',
       role: 'Operator',
       department: 'Production Team',
@@ -133,7 +150,7 @@ const TeamMembers = () => {
       },
     },
     {
-      id: 8,
+      id: 9,
       name: 'Manab Pal',
       role: 'Cutfold Operator',
       department: 'Production Team',

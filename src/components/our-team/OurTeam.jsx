@@ -16,7 +16,7 @@ const OurTeam = () => {
       id: 1,
       name: 'Borhan Haldar',
       role: 'Co-Founder & Technical Director',
-      experience: '10+ years of experience in the woven label industry',
+      experience: '30+ years of experience in the woven label industry',
       description:
         'Leading expert in woven label manufacturing with deep industry knowledge and innovative manufacturing techniques.',
       image: CofounderImage1,
@@ -34,7 +34,7 @@ const OurTeam = () => {
       name: 'Abdul Sarfraj Khan',
       role: 'Co-Founder & Business Director',
       experience:
-        '30+ years of combined experience in garment and accessories industry',
+        '10+ years of combined experience in garment and accessories industry',
       description:
         'Visionary leader with extensive experience in garment business, bringing strategic insight and industry connections.',
       image: CofounderImage,
@@ -333,13 +333,13 @@ const OurTeam = () => {
                 initial="hidden"
                 animate={hoveredCard === member.id ? 'visible' : 'hidden'}
               >
-                <motion.div
+                {/* <motion.div
                   className="connect-button"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Connect
-                </motion.div>
+                </motion.div> */}
               </motion.div>
 
               {/* Card Border Animation */}
