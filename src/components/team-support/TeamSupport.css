@@ -291,7 +291,7 @@
 
 .pattern-hexagon {
   background-image: radial-gradient(
-      circle at 25% 25%,
+      circle at 50% 50%,
       #06b6d4 2px,
       transparent 2px
     ),

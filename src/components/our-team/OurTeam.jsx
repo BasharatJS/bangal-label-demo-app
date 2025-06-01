@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './OurTeam.css'
 import CofounderImage from '../../assets/images/founder-image.jpg'
-import CofounderImage1 from '../../assets/images/founder-image1.jpeg'
+import CofounderImage1 from '../../assets/images/BorhaanHalder.jpg'
 import CofounderImage2 from '../../assets/images/founder-image2.jpeg'
 
 const OurTeam = () => {

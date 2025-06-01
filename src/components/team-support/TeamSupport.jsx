@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './TeamSupport.css'
 import SupportImage1 from '../../assets/images/Hazi-Saheb.jpg'
-import SupportImage2 from '../../assets/images/imaran-halder.jpg'
+import SupportImage2 from '../../assets/images/ImranHalder.jpg'
 import SupportImage3 from '../../assets/images/BangalLabel.png'
 
 const TeamSupport = () => {
@@ -36,7 +36,8 @@ const TeamSupport = () => {
       gradient: 'from-cyan-400 to-blue-500',
       accentColor: '#06b6d4',
       icon: '🎯',
-      pattern: 'hexagon',
+      // pattern: 'hexagon',
+      pattern: 'diamond',
     },
     {
       id: 2,
@@ -61,7 +62,8 @@ const TeamSupport = () => {
       gradient: 'from-violet-400 to-purple-500',
       accentColor: '#8b5cf6',
       icon: '⚡',
-      pattern: 'circle',
+      // pattern: 'circle',
+      pattern: 'diamond',
     },
     {
       id: 3,
