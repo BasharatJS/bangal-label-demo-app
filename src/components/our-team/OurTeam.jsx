@@ -31,7 +31,7 @@ const OurTeam = () => {
     },
     {
       id: 2,
-      name: 'Abdul Sarfraj Khan',
+      name: 'Abdul Sarfaraj Khan',
       role: 'Co-Founder & Business Director',
       experience:
         '10+ years of combined experience in garment and accessories industry',

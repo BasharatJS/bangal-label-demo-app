@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './TeamSupport.css'
 import SupportImage1 from '../../assets/images/Hazi-Saheb1.jpg'
-import CofounderImage2 from '../../assets/images/founder-image2.jpeg'
+import CofounderImage2 from '../../assets/images/Manik-Halder.jpg'
 
 const TeamSupport = () => {
   const ref = useRef(null)
@@ -17,7 +17,7 @@ const TeamSupport = () => {
       name: 'Hazi Saheb',
       // role: 'Customer Success Manager',
       department: 'Senior Advisor',
-      experience: '48+ years',
+      experience: '55+ years',
       description:
         'Offers high-level strategic counsel and expertise to guide organizational planning and decision-making.',
       image: SupportImage1,
@@ -43,7 +43,7 @@ const TeamSupport = () => {
       name: 'Manik Halder',
       // role: 'Technical Support Lead',
       department: 'Internal Consultant',
-      experience: '10+ years',
+      experience: '55+ years',
       description:
         'Provides expert analysis and recommendations to improve internal processes, strategies, and performance across the organization.',
       image: CofounderImage2,

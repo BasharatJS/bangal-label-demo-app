@@ -31,7 +31,7 @@ const OurJourney = () => {
       year: '2000s',
       title: 'Industry Experience',
       description:
-        'Abd Sarfraj Khan accumulated over 10 years of specialized experience in the woven label industry, developing expertise and identifying market opportunities.',
+        'Abdul Sarfaraj Khan accumulated over 10 years of specialized experience in the woven label industry, developing expertise and identifying market opportunities.',
       icon: '⚙️',
       position: 'left',
     },
@@ -40,7 +40,7 @@ const OurJourney = () => {
       year: '2020',
       title: 'The Conversation',
       description:
-        'A pivotal discussion between friends Borhan Haldar and Abd Sarfraj Khan about business opportunities led to the decision to venture into label manufacturing.',
+        'A pivotal discussion between friends Borhan Haldar and Abdul Sarfaraj Khan about business opportunities led to the decision to venture into label manufacturing.',
       icon: '💭',
       position: 'right',
     },
@@ -49,7 +49,7 @@ const OurJourney = () => {
       year: '2021',
       title: 'Bengal Label Born',
       description:
-        'After careful consideration and leveraging combined expertise, Borhan Haldar and Abd Sarfraj Khan partnered to establish Bengal Label, focusing on high-quality woven and printed labels.',
+        'After careful consideration and leveraging combined expertise, Borhan Haldar and Abdul Sarfaraj Khan partnered to establish Bengal Label, focusing on high-quality woven and printed labels.',
       icon: '🚀',
       position: 'left',
     },
@@ -275,6 +275,14 @@ const OurJourney = () => {
           transition={{ duration: 0.8, delay: 2 }}
         >
           <motion.button
+            href="#contact"
+            onClick={() =>
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth',
+              })
+            }
+            whileFocus={{ scale: 1.05 }}
             className="journey-cta-button"
             whileHover={{
               scale: 1.05,

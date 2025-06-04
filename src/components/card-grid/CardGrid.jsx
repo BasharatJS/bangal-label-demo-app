@@ -281,6 +281,14 @@ const CardGrid = () => {
         </motion.p>
 
         <motion.button
+          href="#contact"
+          onClick={() =>
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: 'smooth',
+            })
+          }
+          whileFocus={{ scale: 1.05 }}
           className="cta-button"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={
