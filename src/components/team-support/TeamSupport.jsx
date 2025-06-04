@@ -16,10 +16,10 @@ const TeamSupport = () => {
       id: 1,
       name: 'Hazi Saheb',
       // role: 'Customer Success Manager',
-      department: 'Decision Making Support',
+      department: 'Senior Advisor',
       experience: '48+ years',
       description:
-        'Dedicated to ensuring exceptional customer experiences and building long-lasting relationships with our clients.',
+        'Offers high-level strategic counsel and expertise to guide organizational planning and decision-making.',
       image: SupportImage1,
       specialties: [
         'Customer Relations',
@@ -42,10 +42,10 @@ const TeamSupport = () => {
       id: 2,
       name: 'Manik Halder',
       // role: 'Technical Support Lead',
-      department: 'Decision Making Support',
+      department: 'Internal Consultant',
       experience: '10+ years',
       description:
-        'Expert in resolving complex technical issues and maintaining seamless operations for optimal productivity.',
+        'Provides expert analysis and recommendations to improve internal processes, strategies, and performance across the organization.',
       image: CofounderImage2,
       specialties: [
         'Technical Troubleshooting',
@@ -261,7 +261,7 @@ const TeamSupport = () => {
             <span className="support-icon">🚀</span>
           </motion.div>
 
-          <h2 className="support-title">Support Excellence</h2>
+          <h2 className="support-title">Business Analysts</h2>
 
           <motion.div
             className="title-underline"
