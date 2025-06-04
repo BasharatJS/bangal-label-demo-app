@@ -241,7 +241,10 @@ const ResponsiveHeader = () => {
               onMouseDown={handleMouseDown}
             >
               <AnimatedLogo />
-              <span className="logo-text-main">Bengal Label</span>
+              <div className="logo-text-container">
+                <span className="logo-text-main">BENGAL LABEL</span>
+                <span className="logo-subtitle">Near Fortune Park</span>
+              </div>
             </a>
           </div>
 

@@ -172,11 +172,20 @@
   }
 }
 
+/* Logo Text Container - NEW */
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  line-height: 1;
+}
+
 /* Logo Text - STABLE VERSION with Background Animation */
 .logo-text-main {
-  font-size: 24px;
+  font-size: 28px; /* Increased from 24px */
   font-weight: bold;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  margin-bottom: 2px; /* Small gap between main text and subtitle */
   /* Beautiful gradient background animation - STABLE VERSION */
   background: linear-gradient(
     135deg,
@@ -195,6 +204,25 @@
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: background-position;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary, rgba(var(--text-primary-rgb, 0, 0, 0), 0.7));
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+/* Hover effects for subtitle */
+.logo-link:hover .logo-subtitle {
+  opacity: 1;
+  color: var(--color-primary);
 }
 
 @keyframes stableTextShimmer {
@@ -489,7 +517,11 @@
   }
 
   .logo-text-main {
-    font-size: 20px;
+    font-size: 22px; /* Slightly smaller on mobile but still bigger than original */
+  }
+
+  .logo-subtitle {
+    font-size: 10px;
   }
 
   .desktop-app-button {
@@ -598,7 +630,11 @@
   }
 
   .logo-text-main {
-    font-size: 18px;
+    font-size: 20px; /* Adjusted for very small screens */
+  }
+
+  .logo-subtitle {
+    font-size: 9px;
   }
 
   .nav-menu {

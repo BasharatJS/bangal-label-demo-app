@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import './OurTeam.css'
 import CofounderImage from '../../assets/images/founder-image.jpg'
 import CofounderImage1 from '../../assets/images/BorhaanHalder.jpg'
-import CofounderImage2 from '../../assets/images/founder-image2.jpeg'
+import SupportImage2 from '../../assets/images/ImranHalder.jpg'
 
 const OurTeam = () => {
   const ref = useRef(null)
@@ -16,7 +16,7 @@ const OurTeam = () => {
       id: 1,
       name: 'Borhan Haldar',
       role: 'Co-Founder & Technical Director',
-      experience: '30+ years of experience in the woven label industry',
+      experience: '30 years of experience in garment accessories',
       description:
         'Leading expert in woven label manufacturing with deep industry knowledge and innovative manufacturing techniques.',
       image: CofounderImage1,
@@ -49,13 +49,12 @@ const OurTeam = () => {
     },
     {
       id: 3,
-      name: 'Manick Haldar',
+      name: 'Imran Haldar',
       role: 'Operations Director',
-      experience:
-        'Multi-generational expertise from the family garment business legacy',
+      experience: '30 years of experience in garment accessories',
       description:
         'Bringing family legacy and operational excellence to ensure smooth production and delivery processes.',
-      image: CofounderImage2,
+      image: SupportImage2,
       specialties: [
         'Operations Management',
         'Supply Chain',

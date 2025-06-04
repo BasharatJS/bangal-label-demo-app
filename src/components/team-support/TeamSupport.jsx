@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './TeamSupport.css'
-import SupportImage1 from '../../assets/images/Hazi-Saheb.jpg'
-import SupportImage2 from '../../assets/images/ImranHalder.jpg'
-import SupportImage3 from '../../assets/images/BangalLabel.png'
+import SupportImage1 from '../../assets/images/Hazi-Saheb1.jpg'
+import CofounderImage2 from '../../assets/images/founder-image2.jpeg'
 
 const TeamSupport = () => {
   const ref = useRef(null)
@@ -16,8 +15,8 @@ const TeamSupport = () => {
     {
       id: 1,
       name: 'Hazi Saheb',
-      role: 'Customer Success Manager',
-      department: 'Customer Support',
+      // role: 'Customer Success Manager',
+      department: 'Decision Making Support',
       experience: '48+ years',
       description:
         'Dedicated to ensuring exceptional customer experiences and building long-lasting relationships with our clients.',
@@ -41,13 +40,13 @@ const TeamSupport = () => {
     },
     {
       id: 2,
-      name: 'Imran Halder',
-      role: 'Technical Support Lead',
-      department: 'Technical Support',
+      name: 'Manik Halder',
+      // role: 'Technical Support Lead',
+      department: 'Decision Making Support',
       experience: '10+ years',
       description:
         'Expert in resolving complex technical issues and maintaining seamless operations for optimal productivity.',
-      image: SupportImage2,
+      image: CofounderImage2,
       specialties: [
         'Technical Troubleshooting',
         'System Maintenance',
@@ -65,31 +64,31 @@ const TeamSupport = () => {
       // pattern: 'circle',
       pattern: 'diamond',
     },
-    {
-      id: 3,
-      name: 'Emma Rodriguez',
-      role: 'Operations Coordinator',
-      department: 'Operations Support',
-      experience: '6+ years',
-      description:
-        'Streamlining operations and ensuring efficient workflow coordination across all departments.',
-      image: SupportImage3,
-      specialties: [
-        'Operations Management',
-        'Workflow Optimization',
-        'Cross-team Collaboration',
-        'Quality Assurance',
-      ],
-      achievements: [
-        '35% Efficiency Increase',
-        'Process Excellence Award',
-        'Team Collaboration Leader',
-      ],
-      gradient: 'from-emerald-400 to-green-500',
-      accentColor: '#10b981',
-      icon: '📊',
-      pattern: 'diamond',
-    },
+    // {
+    //   id: 3,
+    //   name: 'Emma Rodriguez',
+    //   role: 'Operations Coordinator',
+    //   department: 'Operations Support',
+    //   experience: '6+ years',
+    //   description:
+    //     'Streamlining operations and ensuring efficient workflow coordination across all departments.',
+    //   image: SupportImage3,
+    //   specialties: [
+    //     'Operations Management',
+    //     'Workflow Optimization',
+    //     'Cross-team Collaboration',
+    //     'Quality Assurance',
+    //   ],
+    //   achievements: [
+    //     '35% Efficiency Increase',
+    //     'Process Excellence Award',
+    //     'Team Collaboration Leader',
+    //   ],
+    //   gradient: 'from-emerald-400 to-green-500',
+    //   accentColor: '#10b981',
+    //   icon: '📊',
+    //   pattern: 'diamond',
+    // },
   ]
 
   // Animation variants
