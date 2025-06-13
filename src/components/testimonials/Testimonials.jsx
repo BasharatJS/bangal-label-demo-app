@@ -13,9 +13,9 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'John Doe',
+      name: 'Aditya nolkha',
       position: 'CEO',
-      company: 'ADI & ARYA.',
+      company: 'Adi & Arya.',
       image: adiCeoImage,
       rating: 5,
       text: 'Amazing service.. on time delivery and consistence in quality.',
